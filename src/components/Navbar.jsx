@@ -8,7 +8,6 @@ function Navbar() {
   const navigate = useNavigate()
   const location = useLocation()
   const [user, setUser] = useState(null)
-  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -40,7 +39,10 @@ function Navbar() {
                 style={{fontSize:'13px', padding:'8px 16px'}}>
                 업체
               </Link>
-              <span style={{fontSize:'13px', color:'#6b7280'}}>{user.displayName}님</span>
+              <Link to="/mypage" className="btn btn-secondary"
+                style={{fontSize:'13px', padding:'8px 16px'}}>
+                👤 {user.displayName}
+              </Link>
               <button onClick={handleLogout} className="btn btn-secondary"
                 style={{fontSize:'13px', padding:'8px 16px'}}>
                 로그아웃
@@ -78,6 +80,11 @@ function Navbar() {
             onClick={() => navigate('/business/dashboard')}>
             <span className="mobile-nav-item-icon">🏢</span>
             업체
+          </button>
+          <button className={`mobile-nav-item ${isActive('/mypage') ? 'active' : ''}`}
+            onClick={() => navigate('/mypage')}>
+            <span className="mobile-nav-item-icon">👤</span>
+            마이
           </button>
         </div>
       )}

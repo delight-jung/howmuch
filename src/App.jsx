@@ -9,8 +9,9 @@ import BusinessRegister from './pages/business/RegisterBiz'
 import BusinessDashboard from './pages/business/Dashboard'
 import RequestDetail from './pages/business/RequestDetail'
 import Chat from './pages/Chat'
-import Navbar from './components/Navbar'
 import BizProfile from './pages/BizProfile'
+import MyPage from './pages/MyPage'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/business/request/:id" element={<RequestDetail />} />
         <Route path="/chat/:requestId/:bizId" element={<Chat />} />
         <Route path="/biz/:bizId" element={<BizProfile />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   )
